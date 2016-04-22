@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block js %}
+<script>
+  $(document).bind('ready', function() {
+    var activeContentTimeout = null;
+    console.log($('.content'));
+    $('.news h2').bind('mouseenter', function() {
+      activeContentTimeout = setTimeout(function() {
+        $('.news.active').removeClass('active').find('h2').css('color', '').find('span').css('border-color', '');
+        $('#news-box').css('border-color', $(this).attr('data-color'));
+        $(this).css('color', $(this).attr('data-color')).find('span').css('border-color', $(this).attr('data-color')).parents('.news').addClass('active');
+      }.bind(this), 400);
+    }).bind('mouseleave', function() {
+      clearTimeout(activeContentTimeout);
+    });
+    $('.news.active h2').css('color', $('.news.active h2').attr('data-color'));
+    $('.news.active h2 span').css('border-color', $('.news.active h2').attr('data-color'));
+    $('#news-box').css('border-color', $('.news.active h2').attr('data-color'));
+  });
+</script>
+{% endblock %}
+
+{% block content %}
+<nav id="news-menu">
+  <div id="login">
+    {% if not request.user.is_authenticated %}
+    <a href="{% url 'login' %}">Login</a>
+    {% else %}
+    {{ request.user.email }}
+    <a href="{% url 'news_create' %}">Criar Acontecimento</a>
+    <a href="{% url 'logout' %}">Sair</a>
+    {% endif %}
+  </div>
+</nav>
+<section id="news-box">
+  <div class="news active">
+    <h2 data-color="lightblue">
+      Canoas
+      <span></span>
+    </h2>
+    <div class="content" style="border-color: lightblue;">
+      {% for article in articles %}
+      {% if article.city.lower == 'canoas' %}
+      <article>
+        <h3>
+          <a href="{% url 'point_up' article_id=article.id %}">+</a>
+          {{ article.title }}
+          <span style="font-size: 12px;">em {{ article.by_when|timeuntil }}</span>
+          ({{ article.points }})
+        </h3>
+        <p>{{ article.description }}</p>
+      </article>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="news">
+    <h2 data-color="lightcoral">
+      Porto Alegre
+      <span></span>
+    </h2>
+    <div class="content" style="border-color: lightcoral;">
+      {% for article in articles %}
+      {% if article.city.lower == 'porto alegre' %}
+      <article>
+        <h3>
+          <a href="{% url 'point_up' article_id=article.id %}">+</a>
+          {{ article.title }}
+          <span style="font-size: 12px;">em {{ article.by_when|timeuntil }}</span>
+          ({{ article.points }})
+        </h3>
+        <p>{{ article.description }}</p>
+      </article>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="news">
+    <h2 data-color="lightgreen">
+      São Leopoldo
+      <span></span>
+    </h2>
+    <div class="content" style="border-color: lightgreen;">
+      {% for article in articles %}
+      {% if article.city.lower == 'são leopoldo' %}
+      <article>
+        <h3>
+          <a href="{% url 'point_up' article_id=article.id %}">+</a>
+          {{ article.title }}
+          <span style="font-size: 12px;">em {{ article.by_when|timeuntil }}</span>
+          ({{ article.points }})
+        </h3>
+        <p>{{ article.description }}</p>
+      </article>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

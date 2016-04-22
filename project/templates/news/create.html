@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block js %}
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.datepicker').datepicker({
+        dateFormat: "dd/mm/yy"
+      });
+    });
+  </script>
+{% endblock %}
+
+{% block content %}
+    <nav id="news-menu">
+      <div id="login">
+        {% if not request.user.is_authenticated %}
+        <a href="{% url 'login' %}">Login</a>
+        {% else %}
+        {{ request.user.email }}
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'logout' %}">Sair</a>
+        {% endif %}
+      </div>
+    </nav>
+    <div class="content" id="login-page" style="width: 740px;">
+        <h2>Crie um acontecimento</h2>
+        {% if warning %}
+          <div class="alert alert-block">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+          </div>
+        {% endif %}
+        {% if success %}
+          <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+          </div>
+        {% endif %}
+        {% if error %}
+          <div class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+          </div>
+        {% endif %}
+        <form method="post" class="form-horizontal" style="margin: 40px 0 50px;" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="control-group">
+            <label class="control-label" for="inputAddress">Onde Aconteceu?</label>
+            <div class="controls">
+              <input type="text" id="inputAddress" value="{{ location }}" name="address" placeholder="Digite a localização do acontecimento" style="width: 554px;">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputDate">Data</label>
+            <div class="controls">
+              <input type="text" id="inputDate" class="datepicker" name="date" placeholder="Selecione uma data">
+              <input type="text" name="hour" placeholder="Digite um horário: HH:MM">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputEmail">Título</label>
+            <div class="controls">
+              <input type="text" id="inputEmail" name="title" placeholder="Digite um título" style="width: 554px;">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="description">Descri&ccedil;&atilde;o</label>
+            <div class="controls">
+              <textarea id="description" name="description" style="width: 554px; height: 185px;"></textarea>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputImage">Imagem</label>
+            <div class="controls">
+              <input type="file" id="inputImage" name="image">
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <button type="submit" class="btn btn-success">Enviar</button>
+            </div>
+          </div>
+        </form>
+
+    </div>
+{% endblock %}
