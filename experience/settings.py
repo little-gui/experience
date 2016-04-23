@@ -154,9 +154,3 @@ from django.db import connection
 if 'djcelery_taskstate' in connection.introspection.table_names():
     # if djcelery is already in database ignore migrations
     MIGRATION_MODULES = {'djcelery': None,}
-
-INSTALLED_APPS += ('storages',)
-AWS_STORAGE_BUCKET_NAME = "python-gui"
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-STATIC_URL = S3_URL
