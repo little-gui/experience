@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-12agj@o!r$2yg^a_#o)r82zhz!lsi3w3%@hrg-bqzna3a=tp9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ec2-54-213-52-160.us-west-2.compute.amazonaws.com']
 
 
 # Application definition
@@ -159,3 +159,18 @@ try:
     from settings_local import *
 except ImportError:
     pass
+
+
+from celery.schedules import crontab
+CELERYBEAT_SCHEDULE = {
+    # Executes every 12 hours
+    'add-every-12-hours': {
+        'task': 'tasks.retweet',
+        'schedule': crontab(minute=0, hour='*/12'),
+    },
+    # Executes every 3 days
+    'add-every-3-days': {
+        'task': 'tasks.retweet',
+        'schedule': crontab(minute=0, hour=0, day_of_month='*/3'),
+    },
+}
