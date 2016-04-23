@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 Django settings for experience project.
 
