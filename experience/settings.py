@@ -155,8 +155,7 @@ if 'djcelery_taskstate' in connection.introspection.table_names():
     # if djcelery is already in database ignore migrations
     MIGRATION_MODULES = {'djcelery': None,}
 
-from settings_local import *
 try:
     from settings_local import *
-except:
+except ImportError:
     pass
