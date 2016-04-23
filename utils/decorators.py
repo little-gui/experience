@@ -1,3 +1,13 @@
+"""
+Decorators for easing function views usage.
+
+Usage:
+
+@render_to('path/to/template.html')
+def my_cool_view(request):
+    my_var = 'Cool!'
+    return {'myvar':myvar}
+"""
 from django.core.urlresolvers import resolve
 
 from django.template import RequestContext
@@ -41,12 +51,3 @@ def render_to(tpl, *args, **kw):
         return wrapper
     return renderer
 
-
-"""
-Usage:
-
-@render_to('path/to/template.html')
-def my_cool_view(request):
-    my_var = 'Cool!'
-    return {'myvar':myvar}
-"""

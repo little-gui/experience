@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block js %}
+{% endblock %}
+
+
+{% block content %}
+<div class="row">
+    <div class="col-md-5">
+        <form method="post" action="{% url 'twitterbot_index' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="account">Account to check</label>
+                <input type="text" class="form-control" name="account" 
+                    placeholder="Type the account you want to check">
+            </div>
+            <button type="submit" class="btn btn-default">Send</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
