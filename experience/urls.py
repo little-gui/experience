@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+from django.views import static
 from django.conf import settings
 from django.contrib import admin
 
@@ -25,5 +26,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', geolocation_views.index, name="geolocation_index"),
     url(r'^twitter/?$', twitterbot_views.index, name="twitterbot_index"),
-    url(r'^(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.BASE_DIR, 'show_indexes': True})
+    url(r'^(?P<path>.*)$', static.serve, {'document_root': settings.BASE_DIR, 'show_indexes': True})
 ]
