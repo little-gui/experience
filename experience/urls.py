@@ -25,5 +25,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', geolocation_views.index, name="geolocation_index"),
     url(r'^twitter/?$', twitterbot_views.index, name="twitterbot_index"),
-    url(r'^(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.BASEDIR, 'show_indexes': True})
+    url(r'^(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.BASE_DIR, 'show_indexes': True})
 ]
