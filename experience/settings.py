@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'experience.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'experience',
+        'NAME': BASE_DIR+'/experience.db',
         # 'USER': 'postgres',
         # 'PASSWORD': 'postgres',
         # 'HOST': 'localhost',
