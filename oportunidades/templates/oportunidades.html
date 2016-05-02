@@ -1,0 +1,29 @@
+{% extends "internal-base.html" %}
+{% load staticfiles %}
+
+{% block js %}
+{% endblock %}
+
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 clearfix" style="padding-left: 50px;">
+        Preencha o espa&ccedil;o abaixo com o c&oacute;digo que voc&ecirc; recebeu. O acesso a rede 
+        de oportunidades s&oacute; &eacute; fornecido para aqueles que tiverem este c&oacute;digo.
+        <br>
+        Para adquirir um c&oacute;digo entre em contato com um dos l&iacute;deres da Mover.
+    </div>
+
+    <div class="col-md-4 col-md-offset-4 clearfix" style="margin-top: 40px;">
+        <form method="post" action="{% url 'geolocation_index' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="address">C&oacute;digo</label>
+                <input type="text" class="form-control" id="codigo"
+                    name="codigo" placeholder="Digite o c&oacute;digo aqui">
+            </div>
+            <a href="{% url 'oportunidades_new' %}" class="btn btn-default">Entrar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

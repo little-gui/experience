@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-12agj@o!r$2yg^a_#o)r82zhz!lsi3w3%@hrg-bqzna3a=tp9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['ec2-54-213-52-160.us-west-2.compute.amazonaws.com']
 
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'djcelery',
     'geolocation',
     'twitterbot',
+    'oportunidades',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -83,9 +84,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'experience',
-        'USER': 'pythongui',
-        'PASSWORD': 'Pythongui!',
-        'HOST': 'dev.cvdiesuhcgpk.us-west-2.rds.amazonaws.com',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }

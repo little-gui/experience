@@ -1,0 +1,84 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'css/libs/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="col-md-12" style="height: 10px; background-color: #000000;"></div>
+    <div id="nav" class="col-md-12" style="background-color: #2A9f49; {% block navstyle %}{% endblock %}">
+        <img src="http://www.igrejadomover.org.br/wp-content/uploads/2015/07/mover3.png">
+        <ul id="top-menu">
+            <li>
+                <a href="http://www.igrejadomover.org.br/">HOME</a>
+            </li>
+            <li>
+                <a href="http://www.igrejadomover.org.br/pregacoes/">MENSAGENS</a>
+            </li>
+            <li>
+                <a href="http://www.igrejadomover.org.br/ministerios/">MINIST&Eacute;RIOS</a>
+            </li>
+            <li>
+                <a href="http://igrejadomover.org.br/eventos/">AGENDA</a>
+            </li>
+            <li>
+                <a href="#">IGREJAS</a>
+                <ul>
+                    <li>
+                        <a href="http://www.igrejadomover.org.br/sede-canoas/">Sede Canoas</a>
+                    </li>
+                    <li>
+                        <a href="http://www.igrejadomover.org.br/niteroi/">Niter&oacute;i</a>
+                    </li>
+                    <li>
+                        <a href="http://www.igrejadomover.org.br/guajuviras/">Guajuviras</a>
+                    </li>
+                    <li>
+                        <a href="http://www.igrejadomover.org.br/nova-vida/">Nova Vida</a>
+                    </li>
+                    <li>
+                        <a href="http://www.igrejadomover.org.br/viamao/">Viam&atilde;o</a>
+                    </li>
+                    <li>
+                        <a href="http://www.igrejadomover.org.br/sertao-santana/">Sert&atilde;o Santana</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="http://www.igrejadomover.org.br/institucional/">INSTITUCIONAL</a>
+            </li>
+            <li class="active">
+                <a href="{% url 'oportunidades_index' %}">REDE DE OPORTUNIDADES</a>
+            </li>
+            <li>
+                <a href="http://www.igrejadomover.org.br/fale-conosco/">FALE CONOSCO</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        {% block content %}{% endblock content %}
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'js/libs/jquery.min.1.11.3.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'js/libs/bootstrap.min.js' %}"></script>
+    {% block js %}{% endblock js %}
+  </body>
+</html>

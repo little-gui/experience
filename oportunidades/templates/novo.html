@@ -1,0 +1,77 @@
+{% extends "internal-base.html" %}
+{% load staticfiles %}
+
+{% block js %}
+{% endblock %}
+
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 clearfix">
+        Este c&oacute;digo ainda n&atilde;o foi utilizado. Preencha os dados abaixo para vincular
+        seus dados ao c&oacute;digo utilizado. 
+        <br>
+        Preencha com cautela o m&aacute;ximo de informa&ccedil;&otilde;es poss&iacute;veis.
+        <br>
+        Os campos que tiverem um asterisco ao lado s&atilde;o obrigat&oacute;rios.
+    </div>
+
+    <div class="col-md-6 col-md-offset-3 clearfix" style="margin-top: 40px;">
+        <form method="post" action="{% url 'geolocation_index' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="address">Fun&ccedil;&atilde;o Pretendida*</label>
+                <input type="text" class="form-control" id="nome"
+                    name="nome" placeholder="Digite a fun&ccedil;&atilde;o que voc&ecirc; pretende trabalhar">
+            </div>
+            <div class="form-group">
+                <label for="address">Mover que frequenta*</label>
+                <input type="text" class="form-control" id="nome"
+                    name="nome" placeholder="Digite a localiza&ccedil;&atilde;o da Igreja do Mover que frequenta">
+            </div>
+            <div class="form-group pull-left" style="width: 100%;">
+                <div class="col-md-6" style="padding: 0;">
+                    <label for="address">Nome*</label>
+                    <input type="text" class="form-control" id="nome"
+                        name="nome" placeholder="Digite seu nome completo">
+                </div>
+                <div class="col-md-6" style="padding: 0; padding-left: 15px;">
+                    <label for="address">CPF*</label>
+                    <input type="text" class="form-control" id="nome"
+                        name="nome" placeholder="Digite seu CPF com pontos e tra&ccedil;o">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Endere&ccedil;o</label>
+                <input type="text" class="form-control" id="nome"
+                    name="nome" placeholder="Digite seu endere&ccedil;o com rua e n&uacute;mero">
+            </div>
+            <div class="form-group pull-left" style="width: 100%;">
+                <div class="col-md-6" style="padding: 0;">
+                    <label for="address">Bairro</label>
+                    <input type="text" class="form-control" id="nome"
+                        name="nome" placeholder="Digite seu bairro">
+                </div>
+                <div class="col-md-6" style="padding: 0; padding-left: 15px;">
+                    <label for="address">Cidade</label>
+                    <input type="text" class="form-control" id="nome"
+                        name="nome" placeholder="Digite a cidade onde voc&ecirc; mora">
+                </div>
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="form-group">
+                <label for="address">Senha de acesso*</label>
+                <input type="password" class="form-control" id="nome"
+                    name="nome" placeholder="Digite uma senha para acessar a rede de oportunidades">
+            </div>
+            <div class="form-group">
+                <label for="address">Senha novamente</label>
+                <input type="password" class="form-control" id="nome"
+                    name="nome" placeholder="Confirme a sua senha digitada acima">
+            </div>
+            <a href="{% url 'oportunidades_dashboard' %}" class="btn btn-success">Confirmar Dados</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
