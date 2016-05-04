@@ -1,5 +1,11 @@
 from __future__ import unicode_literals
+import uuid
 
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
+
+class Login(models.Model):
+	user = models.OneToOneField(User)
+	code = models.UUIDField(default=uuid.uuid4)
+

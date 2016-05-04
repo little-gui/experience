@@ -28,7 +28,12 @@ urlpatterns = [
     url(r'^$', views.index, name="oportunidades_index"),
     url(r'^novo/?$', views.new, name="oportunidades_new"),
     url(r'^mural/?$', views.dashboard, name="oportunidades_dashboard"),
+    url(r'^admin/?$', views.admin, name="oportunidades_admin"),
+    url(r'^setup/(?P<code>[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})/?$', views.setup, name="oportunidades_setup"),
+    url(r'^empregados/?$', views.empregados, name="oportunidades_empregados"),
+    
     url(r'^geolocation/?$', geolocation_views.index, name="geolocation_index"),
     url(r'^twitter/?$', twitterbot_views.index, name="twitterbot_index"),
+    
     url(r'^(?P<path>.*)$', static.serve, {'document_root': settings.BASE_DIR, 'show_indexes': True})
 ]

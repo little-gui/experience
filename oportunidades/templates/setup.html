@@ -1,0 +1,34 @@
+{% extends "internal-base.html" %}
+{% load staticfiles %}
+
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4 col-md-offset-4 clearfix" style="padding-left: 50px;">
+        Configurar uma senha para o usu&aacute;rio {{ user.username }}.
+    </div>
+
+    <div class="col-md-4 col-md-offset-4 clearfix" style="margin-top: 40px;">
+        <form method="post" action="{% url 'oportunidades_setup' code=code %}">
+            {% csrf_token %}
+            <div class="form-group{{ error|yesno:" has-error," }}">
+                <label for="address">Senha</label>
+                <input type="password" class="form-control" id="password"
+                    name="password">
+                {% if error %}
+                <div class="help-block with-errors">Senha e confirma&ccedil;&atilde;o s&atilde;o diferentes.</div>
+                {% endif %}
+            </div>
+            <div class="form-group{{ error|yesno:" has-error," }}">
+                <label for="address">Confirmar Senha</label>
+                <input type="password" class="form-control" id="confirm_password"
+                    name="confirm_password">
+                {% if error %}
+                <div class="help-block with-errors">Senha e confirma&ccedil;&atilde;o s&atilde;o diferentes.</div>
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-default">Entrar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
