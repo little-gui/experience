@@ -16,10 +16,17 @@
                 <input type="text" class="form-control" id="funcao_pretendida"
                     name="funcao_pretendida" placeholder="Digite a fun&ccedil;&atilde;o que voc&ecirc; pretende trabalhar">
             </div>
-            <div class="form-group">
-                <label for="address">Mover que frequenta*</label>
-                <input type="text" class="form-control" id="mover"
-                    name="mover" placeholder="Digite a localiza&ccedil;&atilde;o da Igreja do Mover que frequenta">
+            <div class="form-group pull-left" style="width: 100%;">
+                <div class="col-md-6" style="padding: 0;">
+                    <label for="address">Mover que frequenta*</label>
+                    <input type="text" class="form-control" id="mover"
+                        name="mover" placeholder="Digite a localiza&ccedil;&atilde;o da Igreja do Mover que frequenta">
+                </div>
+                <div class="col-md-6" style="padding: 0; padding-left: 15px;">
+                    <label for="address">Ano de Ingresso</label>
+                    <input type="text" class="form-control" id="mover_ano"
+                        name="mover_ano" placeholder="Digite apenas o ano. Ex: 2012">
+                </div>
             </div>
             <div class="form-group">
                 <label for="address">E-mail</label>
@@ -30,6 +37,16 @@
                 <label for="address">Nome*</label>
                 <input type="text" class="form-control" id="nome"
                     name="nome" placeholder="Digite seu nome completo">
+            </div>
+            <div class="form-group">
+                <label for="address">Data de nascimento</label>
+                <input type="text" class="form-control" id="nascimento"
+                    name="nascimento">
+            </div>
+            <div class="form-group">
+                <label for="address">CEP</label>
+                <input type="text" class="form-control" id="cep"
+                    name="cep" placeholder="Digite seu CEP">
             </div>
             <div class="form-group">
                 <label for="address">Endere&ccedil;o</label>
@@ -48,8 +65,138 @@
                         name="cidade" placeholder="Digite a cidade onde voc&ecirc; mora">
                 </div>
             </div>
+            <div class="form-group pull-left" style="width: 100%;">
+                <div class="col-md-6" style="padding: 0;">
+                    <label for="address">Telefone</label>
+                    <input type="text" class="form-control" id="telefone"
+                        name="telefone">
+                </div>
+                <div class="col-md-6" style="padding: 0; padding-left: 15px;">
+                    <label for="address">Celular</label>
+                    <input type="text" class="form-control" id="celular"
+                        name="celular">
+                </div>
+            </div>
+            <fieldset>
+                <legend>Grau de Instru&ccedil;&atilde;o</legend>
+                <div class="form-group">
+                    <label class="radio-inline">
+                        <input type="radio" name="instrucao" value="1" autocomplete="off"> Ensino Fundamental
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="instrucao" value="2" autocomplete="off"> Ensino M&eacute;dio
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="instrucao" value="3" autocomplete="off"> Superior
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="address">Curso</label>
+                    <input type="text" class="form-control" id="curso"
+                        name="curso" placeholder="Digite seu curso t&eacute;cnico ou superior">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Estado Civil</legend>
+                <div class="form-group">
+                    <label class="radio-inline">
+                        <input type="radio" name="estado_civil" value="1" autocomplete="off"> Casado
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="estado_civil" value="2" autocomplete="off"> Solteiro
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="estado_civil" value="3" autocomplete="off"> Divorciado
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="estado_civil" value="4" autocomplete="off"> Separado
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="estado_civil" value="5" autocomplete="off"> Amigado
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>Possui Filhos?</label>
+                    <label class="radio-inline">
+                        <input type="radio" name="" value="1" autocomplete="off"> Sim
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="filhos_numero" value="0" autocomplete="off"> N&atilde;o
+                    </label>
+                </div>                
+                <div class="form-group">
+                    <label>Quantos?</label>
+                    <label class="radio-inline">
+                        <input type="radio" name="filhos_numero" value="1" autocomplete="off"> Um
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="filhos_numero" value="2" autocomplete="off"> Dois
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="filhos_numero" value="3" autocomplete="off"> Tr&ecirc;s
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="filhos_numero" value="+3" autocomplete="off"> Mais do que tr&ecirc;s
+                    </label>
+                </div>                
+                <div class="form-group">
+                    <label for="address">Idade dos filhos</label>
+                    <input type="text" class="form-control" id="filhos_idade"
+                        name="filhos_idade" placeholder="Digite apenas a idade separada por virgulas">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>&Uacute;ltimo Emprego</legend>
+                <div class="form-group">
+                    <label for="empresa">Empresa</label>
+                    <input type="text" class="form-control" id="empresa"
+                        name="empresa" placeholder="Digite o nome da empresa">
+                </div>
+                <div class="form-group pull-left" style="width: 100%;">
+                    <div class="col-md-6" style="padding: 0;">
+                        <label for="responsavel">Respons&aacute;vel</label>
+                        <input type="text" class="form-control" id="responsavel"
+                            name="responsavel" placeholder="Digite o nome da respons&aacute;vel">
+                    </div>
+                    <div class="col-md-6" style="padding: 0; padding-left: 15px;">
+                        <label for="empresa_telefone">Telefone</label>
+                        <input type="text" class="form-control" id="empresa_telefone"
+                            name="empresa_telefone" placeholder="Digite o telefone da empresa">
+                    </div>
+                </div>
+                <div class="form-group pull-left" style="width: 100%;">
+                    <div class="col-md-6" style="padding: 0;">
+                        <label for="empresa_cidade">Cidade</label>
+                        <input type="text" class="form-control" id="empresa_cidade"
+                            name="empresa_cidade" placeholder="Digite a localiza&ccedil;&atilde;o da empresa">
+                    </div>
+                    <div class="col-md-6" style="padding: 0; padding-left: 15px;">
+                        <label for="empresa_estado">UF</label>
+                        <input type="text" class="form-control" id="empresa_estado"
+                            name="empresa_estado" placeholder="Digite a sigla do estado">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="funcao">Fun&ccedil;&atilde;o que desempenhava</label>
+                    <input type="text" class="form-control" id="funcao"
+                        name="funcao" placeholder="Digite o seu cargo">
+                </div>
+                <div class="form-group pull-left" style="width: 100%;">
+                    <div class="col-md-6" style="padding: 0;">
+                        <label for="empresa_admissao">Data de admi&ccedil;&atilde;o</label>
+                        <input type="text" class="form-control" id="empresa_admissao"
+                            name="empresa_admissao" placeholder="Digite a data. Ex: 01/02/2012 ou 2012">
+                    </div>
+                    <div class="col-md-6" style="padding: 0; padding-left: 15px;">
+                        <label for="empresa_demissao">Data de demiss&atilde;o</label>
+                        <input type="text" class="form-control" id="empresa_demissao"
+                            name="empresa_demissao" placeholder="Mesmo formato que admiss&atilde;o">
+                    </div>
+                </div>
+            </fieldset>
             <button type="submit" class="btn btn-success">Confirmar Dados</button>
         </form>
     </div>
 </div>
+<br><br><br><br>
 {% endblock %}
